@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lists_padding">10dp</dimen>
+    <dimen name="height">35dp</dimen>
+    <dimen name="height50">50dp</dimen>
+    <dimen name="marg14">14dp</dimen>
+    <dimen name="marg10">10dp</dimen>
+    <dimen name="marg350">350dp</dimen>
+    <dimen name="pad20">20dp</dimen>
+    <dimen name="vertcpas15">15dp</dimen>
+    <dimen name="horspac15">15dp</dimen>
+    <dimen name="pad4">4dp</dimen>
+    <dimen name="widthimag">120dp</dimen>
+    <dimen name="heighimag">120dp</dimen>
+</resources>
