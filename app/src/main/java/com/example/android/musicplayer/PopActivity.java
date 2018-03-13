@@ -9,13 +9,19 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PopActivity extends AppCompatActivity {
+
+    @BindView(R.id.listview)
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
-
+        ButterKnife.bind(this);
         final ArrayList<Band> bandArrayList = new ArrayList<>();
 
         bandArrayList.add(new Band("Mumford and sons", "Live form South Africa", R.drawable.momfurd));
@@ -26,8 +32,6 @@ public class PopActivity extends AppCompatActivity {
         bandArrayList.add(new Band("Ed Sheeran", "Perfect", R.drawable.edshphoto));
 
         MusicAdapter musicAdapter = new MusicAdapter(PopActivity.this, 0, bandArrayList);
-
-        ListView listView = findViewById(R.id.listview);
 
         listView.setAdapter(musicAdapter);
 

@@ -3,12 +3,12 @@ package com.example.android.musicplayer;
 public class Category {
 
     private String name;
-    private int AlbumImage;
+    private int albumImage;
 
-    Category(String name,int AlbumImage){
+    Category(String name,int albumImage){
 
         this.name = name;
-        this.AlbumImage = AlbumImage;
+        this.albumImage = albumImage;
     }
 
     public String getName() {
@@ -16,6 +16,6 @@ public class Category {
     }
 
     public int getAlbumImage() {
-        return AlbumImage;
+        return albumImage;
     }
 }

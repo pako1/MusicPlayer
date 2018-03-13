@@ -13,10 +13,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MusicAdapter extends ArrayAdapter<Band> {
 
-    public MusicAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Band> bandlist) {
+    @BindView(R.id.bandImage)
+    ImageView albumImage;
+    @BindView(R.id.bandname)
+    TextView bandName;
+    @BindView(R.id.albumName)
+    TextView albumName;
+
+    MusicAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Band> bandlist) {
         super(context, resource, bandlist);
     }
 
@@ -28,18 +38,22 @@ public class MusicAdapter extends ArrayAdapter<Band> {
 
         if (listview == null) {
             listview = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            ButterKnife.bind(this, listview);
         }
 
         Band currentBand = getItem(position);
 
-        ImageView albumImage = listview.findViewById(R.id.bandImage);
-        albumImage.setImageResource(currentBand.getImageBand());
+        if (currentBand != null) {
+            albumImage.setImageResource(currentBand.getImageBand());
+        }
 
-        TextView bandName = listview.findViewById(R.id.bandname);
-        bandName.setText(currentBand.getName());
+        if (currentBand != null) {
+            bandName.setText(currentBand.getName());
+        }
 
-        TextView albumName = listview.findViewById(R.id.albumName);
-        albumName.setText(currentBand.getAlbumSong());
+        if (currentBand != null) {
+            albumName.setText(currentBand.getAlbumSong());
+        }
 
         return listview;
     }

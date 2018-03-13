@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/lists_padding"
+    android:background="@color/backgroundcolor"
     android:paddingLeft="@dimen/lists_padding"
     android:paddingRight="@dimen/lists_padding"
-    android:background="@color/backgroundcolor"
+    android:paddingTop="@dimen/lists_padding"
     tools:context="com.example.android.musicplayer.PopActivity">
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="8.0dp"
-        />
+        android:dividerHeight="8.0dp" />
 
 </RelativeLayout>

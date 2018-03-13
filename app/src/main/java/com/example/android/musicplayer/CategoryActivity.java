@@ -9,13 +9,19 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CategoryActivity extends AppCompatActivity {
+
+    @BindView(R.id.gridview)
+    GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-
+        ButterKnife.bind(this);
         ArrayList<Category> categoryArrayList = new ArrayList<>();
 
         categoryArrayList.add(new Category("Pop", R.drawable.mighty_widows_1x));
@@ -26,8 +32,6 @@ public class CategoryActivity extends AppCompatActivity {
         categoryArrayList.add(new Category("Classical", R.drawable.untitled_1_1x));
 
         CategoryAdapter categoryAdapter = new CategoryAdapter(this, 0, categoryArrayList);
-
-        GridView gridView = findViewById(R.id.gridview);
 
         gridView.setAdapter(categoryAdapter);
 

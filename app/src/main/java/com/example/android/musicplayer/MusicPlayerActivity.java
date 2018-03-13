@@ -3,53 +3,60 @@ package com.example.android.musicplayer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MusicPlayerActivity extends AppCompatActivity {
 
-    int PlayImage;
+    int playImage;
     String name;
     String albumsong;
-    private TextView nameView;
-    private TextView song;
-    private ImageView imageView;
-    private SeekBar seekbar;
-    private TextView secondsRemainedview;
-    private TextView secondspassedview;
-    private ImageButton play;
-    private boolean isPressed;
+    boolean isPressed;
+    @BindView(R.id.bandname)
+     TextView nameView;
+    @BindView(R.id.songname)
+     TextView song;
+    @BindView(R.id.imageplaying)
+     ImageView imageView;
+    @BindView(R.id.seekBar)
+     SeekBar seekbar;
+    @BindView(R.id.secondsremained)
+     TextView secondsRemainedView;
+    @BindView(R.id.secondspassed)
+     TextView secondsPassedView;
+    @BindView(R.id.play)
+     ImageButton play;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
 
-        Intent playintent = getIntent();
-        PlayImage = playintent.getIntExtra("albumImage", 0);
-        name = playintent.getStringExtra("name");
-        albumsong = playintent.getStringExtra("albumSong");
-        setup();
-        nameView.setText(name);
-        song.setText(albumsong);
-        imageView.setImageResource(PlayImage);
-        seekbar.setMax(180);
-        secondsRemainedview.setText("3:00");
+        ButterKnife.bind(this);
 
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isPressed) {
-                    play.setBackgroundResource(R.drawable.ic_pause);
-                } else {
-                    play.setBackgroundResource(R.drawable.ic_play_button);
-                }
-                isPressed = !isPressed;
-            }
-        });
+        Intent playintent = getIntent();
+
+        playImage = playintent.getIntExtra("albumImage", 0);
+
+        name = playintent.getStringExtra("name");
+
+        albumsong = playintent.getStringExtra("albumSong");
+
+        nameView.setText(name);
+
+        song.setText(albumsong);
+
+        imageView.setImageResource(playImage);
+
+        seekbar.setMax(180);
+
+        secondsRemainedView.setText(R.string.min3);
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -64,7 +71,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     secondString = "00";
                 }
 
-                secondspassedview.setText(minString + ":" + secondString);
+                String totalP = minString + ":" + secondString;
+                secondsPassedView.setText(totalP);
 
                 int minRem = (seekBar.getMax() - progress) / 60;
                 int secRem = (seekBar.getMax() - progress) - minRem * 60;
@@ -74,8 +82,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 if (secRstring.equalsIgnoreCase("0")) {
                     secRstring = "00";
                 }
-
-                secondsRemainedview.setText(minRstring + ":" + secRstring);
+                String totalR = minRstring + ":" + secRstring;
+                secondsRemainedView.setText(totalR);
 
             }
 
@@ -92,16 +100,14 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     }
 
-    private void setup() {
-
-        play = findViewById(R.id.play);
-        seekbar = findViewById(R.id.seekBar);
-        nameView = findViewById(R.id.bandname);
-        song = findViewById(R.id.songname);
-        imageView = findViewById(R.id.imageplaying);
-        secondspassedview = findViewById(R.id.secondspassed);
-        secondsRemainedview = findViewById(R.id.secondsremained);
-
+    @OnClick(R.id.play)
+    public void play() {
+        if (isPressed) {
+            play.setBackgroundResource(R.drawable.ic_pause);
+        } else {
+            play.setBackgroundResource(R.drawable.ic_play_button);
+        }
+        isPressed = !isPressed;
     }
 
 }

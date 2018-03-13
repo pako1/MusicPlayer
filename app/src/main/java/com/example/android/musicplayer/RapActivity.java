@@ -9,12 +9,21 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class RapActivity extends AppCompatActivity {
+
+    @BindView(R.id.listview)
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
+
+        ButterKnife.bind(this);
 
         final ArrayList<Band> bandArrayList = new ArrayList<>();
 
@@ -26,8 +35,6 @@ public class RapActivity extends AppCompatActivity {
         bandArrayList.add(new Band("Eminem", "The Eminem Show", R.drawable.eminem2));
 
         MusicAdapter musicAdapter = new MusicAdapter(RapActivity.this, 0, bandArrayList);
-
-        ListView listView = findViewById(R.id.listview);
 
         listView.setAdapter(musicAdapter);
 

@@ -10,11 +10,20 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RockActivity extends AppCompatActivity {
+
+    @BindView(R.id.listview)
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
+
+        ButterKnife.bind(this);
 
         final ArrayList<Band> bandArrayList = new ArrayList<>();
 
@@ -26,8 +35,6 @@ public class RockActivity extends AppCompatActivity {
         bandArrayList.add(new Band("The Doors", "The doors", R.drawable.thedoors1));
 
         MusicAdapter musicAdapter = new MusicAdapter(RockActivity.this, 0, bandArrayList);
-
-        ListView listView = findViewById(R.id.listview);
 
         listView.setAdapter(musicAdapter);
 
