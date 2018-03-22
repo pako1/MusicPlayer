@@ -27,12 +27,12 @@ public class RockActivity extends AppCompatActivity {
 
         final ArrayList<Band> bandArrayList = new ArrayList<>();
 
-        bandArrayList.add(new Band("The Beatles", "Abbey Road", R.drawable.abbey1));
-        bandArrayList.add(new Band("Rolling Stones", "blue & lonesome", R.drawable.blueandlan1));
-        bandArrayList.add(new Band("Linking Park", "Living Things", R.drawable.lp1));
-        bandArrayList.add(new Band("Led Zeppelin", "Led Zeppelin", R.drawable.ledz1));
-        bandArrayList.add(new Band("Guns & Roses", "The Spaghetti incident?", R.drawable.guns1));
-        bandArrayList.add(new Band("The Doors", "The doors", R.drawable.thedoors1));
+        bandArrayList.add(new Band(getString(R.string.band_beat), getString(R.string.beat_song), R.drawable.abbey1));
+        bandArrayList.add(new Band(getString(R.string.band_roll), getString(R.string.rolling_song), R.drawable.blueandlan1));
+        bandArrayList.add(new Band(getString(R.string.band_lin), getString(R.string.linkin_song), R.drawable.lp1));
+        bandArrayList.add(new Band(getString(R.string.band_led), getString(R.string.led_song), R.drawable.ledz1));
+        bandArrayList.add(new Band(getString(R.string.band_roses), getString(R.string.guns_song), R.drawable.guns1));
+        bandArrayList.add(new Band(getString(R.string.band_doors), getString(R.string.doors_song), R.drawable.thedoors1));
 
         MusicAdapter musicAdapter = new MusicAdapter(RockActivity.this, 0, bandArrayList);
 

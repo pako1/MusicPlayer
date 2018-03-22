@@ -22,14 +22,16 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
         ArrayList<Category> categoryArrayList = new ArrayList<>();
 
-        categoryArrayList.add(new Category("Pop", R.drawable.mighty_widows_1x));
-        categoryArrayList.add(new Category("Rock", R.drawable.rock));
-        categoryArrayList.add(new Category("Rap", R.drawable.rap));
-        categoryArrayList.add(new Category("Reggae", R.drawable.aid_vinyl_4_1x));
-        categoryArrayList.add(new Category("Electronic", R.drawable.vin_whyte_1x));
-        categoryArrayList.add(new Category("Classical", R.drawable.untitled_1_1x));
+        categoryArrayList.add(new Category(getString(R.string.cat_pop), R.drawable.mighty_widows_1x));
+        categoryArrayList.add(new Category(getString(R.string.cat_rock), R.drawable.rock));
+        categoryArrayList.add(new Category(getString(R.string.cat_rap), R.drawable.rap));
+        categoryArrayList.add(new Category(getString(R.string.cat_reggae), R.drawable.aid_vinyl_4_1x));
+        categoryArrayList.add(new Category(getString(R.string.cat_elec), R.drawable.vin_whyte_1x));
+        categoryArrayList.add(new Category(getString(R.string.cat_clas), R.drawable.untitled_1_1x));
 
         CategoryAdapter categoryAdapter = new CategoryAdapter(this, 0, categoryArrayList);
 

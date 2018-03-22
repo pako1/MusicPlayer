@@ -27,12 +27,12 @@ public class RapActivity extends AppCompatActivity {
 
         final ArrayList<Band> bandArrayList = new ArrayList<>();
 
-        bandArrayList.add(new Band("Eminem", "Lose Yourself", R.drawable.eminem));
-        bandArrayList.add(new Band("2pac", "Better Dayz", R.drawable.pac));
-        bandArrayList.add(new Band("Jay-Z", "4:44", R.drawable.jz));
-        bandArrayList.add(new Band("Drake", "So far Gone", R.drawable.sofargone));
-        bandArrayList.add(new Band("Dr. Dre", "Compton ", R.drawable.dr));
-        bandArrayList.add(new Band("Eminem", "The Eminem Show", R.drawable.eminem2));
+        bandArrayList.add(new Band(getString(R.string.band_eminem), getString(R.string.em_song), R.drawable.eminem));
+        bandArrayList.add(new Band(getString(R.string.band_twop), getString(R.string.twopac_song), R.drawable.pac));
+        bandArrayList.add(new Band(getString(R.string.band_jz), getString(R.string.jz_song), R.drawable.jz));
+        bandArrayList.add(new Band(getString(R.string.band_drak), getString(R.string.drak_song), R.drawable.sofargone));
+        bandArrayList.add(new Band(getString(R.string.band_dr), getString(R.string.dr_song), R.drawable.dr));
+        bandArrayList.add(new Band(getString(R.string.band_eminem), getString(R.string.em2_song), R.drawable.eminem2));
 
         MusicAdapter musicAdapter = new MusicAdapter(RapActivity.this, 0, bandArrayList);
 

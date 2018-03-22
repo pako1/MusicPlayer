@@ -24,12 +24,12 @@ public class PopActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         final ArrayList<Band> bandArrayList = new ArrayList<>();
 
-        bandArrayList.add(new Band("Mumford and sons", "Live form South Africa", R.drawable.momfurd));
-        bandArrayList.add(new Band("Sam smith", "The thrill of it all", R.drawable.samsmith));
-        bandArrayList.add(new Band("X ambassadors", "The reason", R.drawable.xambes));
-        bandArrayList.add(new Band("Kodaline", "High Hopes", R.drawable.highhopekod));
-        bandArrayList.add(new Band("Alex clare", "Damn your eyes", R.drawable.alexclaredamn));
-        bandArrayList.add(new Band("Ed Sheeran", "Perfect", R.drawable.edshphoto));
+        bandArrayList.add(new Band(getString(R.string.band_mum), getString(R.string.Mum_song), R.drawable.momfurd));
+        bandArrayList.add(new Band(getString(R.string.band_sam), getString(R.string.sam_song), R.drawable.samsmith));
+        bandArrayList.add(new Band(getString(R.string.band_X), getString(R.string.X_song), R.drawable.xambes));
+        bandArrayList.add(new Band(getString(R.string.band_Kod), getString(R.string.kod_song), R.drawable.highhopekod));
+        bandArrayList.add(new Band(getString(R.string.band_Alex), getString(R.string.alex_song), R.drawable.alexclaredamn));
+        bandArrayList.add(new Band(getString(R.string.band_ed), getString(R.string.ed_song), R.drawable.edshphoto));
 
         MusicAdapter musicAdapter = new MusicAdapter(PopActivity.this, 0, bandArrayList);
 

@@ -37,7 +37,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
-
         ButterKnife.bind(this);
 
         Intent playintent = getIntent();
@@ -104,8 +103,10 @@ public class MusicPlayerActivity extends AppCompatActivity {
     public void play() {
         if (isPressed) {
             play.setBackgroundResource(R.drawable.ic_pause);
+            play.setContentDescription(getString(R.string.pause));
         } else {
             play.setBackgroundResource(R.drawable.ic_play_button);
+            play.setContentDescription(getString(R.string.play));
         }
         isPressed = !isPressed;
     }
